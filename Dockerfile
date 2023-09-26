@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y pkg-config build-essential libudev-dev
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Install solana tool
-RUN sh -c "$(curl -sSfL https://release.solana.com/v1.10.32/install)"
+RUN sh -c "$(curl -sSfL https://release.solana.com/v1.16.14/install)"
 
 # Add solana tool to PATH 
 ENV PATH="/root/.local/share/solana/install/active_release/bin:$PATH"
@@ -18,4 +18,4 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 RUN cargo install --git https://github.com/project-serum/anchor avm --locked --force
 
 # install Anchor
-RUN avm install 0.25.0 && avm use 0.25.0
+RUN avm install 0.28.0 && avm use 0.28.0
